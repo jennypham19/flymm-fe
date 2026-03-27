@@ -3,7 +3,6 @@ import { lazy } from 'react';
 import type { RouteObject } from 'react-router-dom';
 import { Navigate, Outlet, useRoutes } from 'react-router-dom';
 
-import Customers from './Customers';
 import Loadable from '@/components/Loadable';
 import ProtectedRoute from '@/components/ProtectedRoute';
 import PublicRoute from '@/components/PublicRoute';
@@ -32,7 +31,7 @@ const routes: RouteObject[] = [
         <DashboardLayout />
       </ProtectedRoute>
     ),
-    children: [{ index: true, element: <Home /> }, Customers],
+    children: [{ index: true, element: <Home /> }],
   },
   {
     path: 'auth',
