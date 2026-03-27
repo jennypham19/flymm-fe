@@ -6,7 +6,7 @@
       },
       {
         "source": "/pet/:path*",
-        "destination": "https://pet-web-fe.vercel.app/pet/:path*"
+        "destination": "https://pet-web-fe.vercel.app/:path*"
       },
       {
         "source": "/(.*)",
