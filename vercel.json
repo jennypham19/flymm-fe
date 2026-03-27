@@ -5,8 +5,8 @@
         "destination": "https://wooden-web-fe.vercel.app/:path*"
       },
       {
-        "source": "/(pet)/:path*",
-        "destination": "https://pet-web-fe.vercel.app/:path*"
+        "source": "/pet/:path*",
+        "destination": "https://pet-web-fe.vercel.app/pet/:path*"
       },
       {
         "source": "/(.*)",
