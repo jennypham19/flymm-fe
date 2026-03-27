@@ -1,6 +1,14 @@
 {
     "rewrites": [
       {
+        "source": "/(moc|don-hang)/:path*",
+        "destination": "https://wooden-web-fe.vercel.app/:path*"
+      },
+      {
+        "source": "/(pet)/:path*",
+        "destination": "https://pet-web-fe.vercel.app/:path*"
+      },
+      {
         "source": "/(.*)",
         "destination": "/index.html"
       }
