@@ -28,7 +28,7 @@ import { getCurrentUser } from '@/services/user-service';
 import { setIsAuth } from '@/slices/auth';
 import { setProfile } from '@/slices/user';
 import { useAppDispatch } from '@/store';
-import { setStorageToken } from '@/utils/AuthHelper';
+import { setAccessToken } from '@/utils/AuthHelper';
 import Logger from '@/utils/Logger';
 
 interface LoginFormInputs {
@@ -66,11 +66,10 @@ export default function Login() {
         username: values.username,
         password: values.password,
       });
-
-      if (respAuth.data?.accessToken) {
-        setStorageToken(remember)
-          .accessToken(respAuth.data.accessToken)
-          .refreshToken(respAuth.data.refreshToken);
+      const accessToken = respAuth.data?.accessToken;
+      const userProfile = respAuth.data?.user;
+      if (accessToken && userProfile) {
+        setAccessToken(accessToken);
         const respUser = await getCurrentUser();
         dispatch(setProfile(respUser.data));
         dispatch(setIsAuth(true));

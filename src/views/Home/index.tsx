@@ -1,23 +1,72 @@
-import PageWrapper from '@/components/PageWrapper';
-import { Box } from '@mui/material';
-import { useTranslation } from 'react-i18next';
-import comingSoon from '/imgs/coming_soon.jpg';
+import { Box, Stack, Typography } from '@mui/material';
+import Page from '@/components/Page';
+import Grid from "@mui/material/Grid2"
+import bg_pet from "@/assets/images/users/bg_pet.png";
+import bg_wooden from "@/assets/images/users/bg_wooden.png";
+import bg_ks from "@/assets/images/users/bg_ks.png";
+import bg_work from "@/assets/images/users/bg_work.png";
+import bg_job from "@/assets/images/users/bg_job.png";
+import bg_mintz from "@/assets/images/users/mintz.png";
+import CommonImage from '@/components/Image/index';
 
+
+const DATA_WEB = [
+  {
+    id: 1,
+    image: bg_pet,
+    url: '/pet',
+    label: 'WEBSITE PETZ'
+  },
+  {
+    id: 2,
+    image: bg_wooden,
+    url: '/wooden',
+    label: 'WEBSITE XƯỞNG GỖ'
+  },
+  {
+    id: 3,
+    image: bg_ks,
+    // url: '/pet',
+    label: 'WEBSITE KHÁCH SẠN'
+  },
+  {
+    id: 4,
+    image: bg_work,
+    // url: '/pet',
+    label: 'WEBSITE D.WORK'
+  },
+  {
+    id: 5,
+    image: bg_job,
+    // url: '/pet',
+    label: 'WEBSITE MINTZ JOB'
+  },
+  {
+    id: 6,
+    image: bg_mintz,
+    url: 'https://www.funi.vn',
+    label: 'WEBSITE MINTZ FUNI'
+  }
+]
 const Home = () => {
-  const { t } = useTranslation();
   return (
-    <PageWrapper title={t('home')}>
-      <Box></Box>
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-        <img
-          src={comingSoon}
-          alt='logo'
-          width={400}
-          height={400}
-          style={{ objectFit: 'contain' }}
-        />
+    <Page title='Mintz DG'>
+      <Box sx={{ height: { xs: 'auto', md: '100%'}, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }} bgcolor='#FFFAE4'>
+        <Typography mt={{ xs: 5, md: 0 }} textAlign='center' variant='h2' fontWeight={600} fontFamily='cursive'>Welcome to Mintz DG</Typography>
+        <Typography mx={{ xs: 2, md: 0 }} textAlign='center' mt={2} mb={5} variant='h6' fontWeight={500} fontFamily='cursive'>Vui lòng chon website mà bạn muốn đăng nhập!</Typography>
+        <Grid container spacing={2}>
+          {DATA_WEB.map((data) => (
+            <Grid sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} key={data.id} size={{ xs: 12, md: 4 }}>
+              <CommonImage
+                sx={{ height: 250 }}
+                src={data.image}
+                route={data.url}
+              />
+            </Grid>
+          ))}
+        </Grid>
       </Box>
-    </PageWrapper>
+    </Page>
   );
 };
 
