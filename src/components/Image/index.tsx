@@ -58,11 +58,11 @@ const CommonImage: React.FC<CommonImageProps> = ({
                 borderRadius: borderRadius,
                 objectFit: 'fill',
                 transition: "0.3s",
-                "&:hover": {
-                    transform: route ? "scale(1.05)" : "none",
-                    opacity: route ? 0.9 : 1,
-                },
-                cursor: route ? "pointer" : "default",
+                // "&:hover": {
+                //     transform: route ? "scale(1.05)" : "none",
+                //     opacity: route ? 0.9 : 1,
+                // },
+                // cursor: route ? "pointer" : "default",
                 ...sx,
             }}
             {...rest}

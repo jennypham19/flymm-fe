@@ -56,12 +56,22 @@ const Home = () => {
         <Typography mx={{ xs: 2, md: 0 }} textAlign='center' mt={2} mb={5} variant='h6' fontWeight={500} fontFamily='cursive'>Vui lòng chon website mà bạn muốn đăng nhập!</Typography>
         <Grid container spacing={2}>
           {DATA_WEB.map((data) => (
-            <Grid sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} key={data.id} size={{ xs: 12, md: 4 }}>
+            <Grid 
+              sx={{ 
+                display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column',
+                "&:hover": {
+                    transform: data.url ? "scale(1.05)" : "none",
+                    opacity: data.url ? 0.9 : 1,
+                },
+                cursor: data.url ? "pointer" : "default", 
+              }} key={data.id} size={{ xs: 12, md: 4 }}
+            >
               <CommonImage
                 sx={{ height: 250 }}
                 src={data.image}
                 route={data.url}
               />
+              <Typography mb={2} fontFamily='cursive' fontWeight={600}>{data.label}</Typography>
             </Grid>
           ))}
         </Grid>
