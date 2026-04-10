@@ -14,13 +14,13 @@ const DATA_WEB = [
   {
     id: 1,
     image: bg_pet,
-    url: '/petz/',
+    url: '/petz',
     label: 'WEBSITE PETZ'
   },
   {
     id: 2,
     image: bg_wooden,
-    url: '/wooden/',
+    url: '/wooden',
     label: 'WEBSITE XƯỞNG GỖ'
   },
   {

@@ -7,7 +7,8 @@ interface CommonImageProps extends ImgHTMLAttributes<HTMLImageElement>{
     fallbackSrc?: string;
     sx?: SxProps;
     borderRadius?: string | number;
-    route?: string
+    route?: string,
+    openInNewTab?: boolean; // optional: cho phép control
 }
 
 const CommonImage: React.FC<CommonImageProps> = ({
@@ -18,6 +19,7 @@ const CommonImage: React.FC<CommonImageProps> = ({
     onError,
     borderRadius,
     route,
+    openInNewTab = true,
     ...rest
 }) => {
     const navigate = useNavigate()
@@ -28,6 +30,20 @@ const CommonImage: React.FC<CommonImageProps> = ({
         if(onError) onError(e)
     }
 
+    const handleClick = () => {
+        if(!route) return;
+        const isExternal = /^https?:\/\//.test(route);
+        if(isExternal){
+            if(openInNewTab){
+                window.open(route, "_blank", "noopener,noreferrer")
+            } else {
+                window.location.href = route;
+            }
+        } else {
+            navigate(route)
+        }
+    }
+
     return(
         <Box
             component='img'
@@ -35,14 +51,19 @@ const CommonImage: React.FC<CommonImageProps> = ({
             alt={alt}
             loading="lazy"
             onError={handleError}
-            onClick={() => route && navigate(route)}
+            onClick={handleClick}
             sx={{
                 maxWidth: '100%',
                 height:'auto',
                 borderRadius: borderRadius,
                 objectFit: 'fill',
+                transition: "0.3s",
+                "&:hover": {
+                    transform: route ? "scale(1.05)" : "none",
+                    opacity: route ? 0.9 : 1,
+                },
+                cursor: route ? "pointer" : "default",
                 ...sx,
-                cursor: 'pointer'
             }}
             {...rest}
         />
