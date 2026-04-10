@@ -14,13 +14,13 @@ const DATA_WEB = [
   {
     id: 1,
     image: bg_pet,
-    url: '/petz',
+    url: 'https://www.flymm.vn/petz',
     label: 'WEBSITE PETZ'
   },
   {
     id: 2,
     image: bg_wooden,
-    url: '/wooden',
+    url: 'https://www.flymm.vn/moc',
     label: 'WEBSITE XƯỞNG GỖ'
   },
   {

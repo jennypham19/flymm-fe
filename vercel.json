@@ -1,7 +1,7 @@
 {
     "rewrites": [
       {
-        "source": "/(moc|don-hang)/:path*",
+        "source": "/moc/:path*",
         "destination": "https://wooden-web-fe.vercel.app/:path*"
       },
       {
