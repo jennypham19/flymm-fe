@@ -8,6 +8,7 @@ import bg_work from "@/assets/images/users/bg_work.png";
 import bg_job from "@/assets/images/users/bg_job.png";
 import bg_mintz from "@/assets/images/users/mintz.png";
 import CommonImage from '@/components/Image/index';
+import bg_flymm from "@/assets/images/users/bg.jpg"
 
 
 const DATA_WEB = [
@@ -50,9 +51,17 @@ const DATA_WEB = [
 ]
 const Home = () => {
   return (
-    <Page title='Mintz DG'>
-      <Box sx={{ height: { xs: 'auto', md: '100%'}, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column' }} bgcolor='#FFFAE4'>
-        <Typography mt={{ xs: 5, md: 0 }} textAlign='center' variant='h2' fontWeight={600} fontFamily='cursive'>Welcome to Mintz DG</Typography>
+    <Page title='Flymm'>
+      <Box 
+        sx={{ 
+          height: { xs: 'auto', md: '100%'}, display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'column',
+          backgroundImage: `url(${bg_flymm})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          color: '#fff'
+        }}
+      >
+        <Typography mt={{ xs: 5, md: 0 }} textAlign='center' variant='h2' fontWeight={600} fontFamily='cursive'>Welcome to Flymm</Typography>
         <Typography mx={{ xs: 2, md: 0 }} textAlign='center' mt={2} mb={5} variant='h6' fontWeight={500} fontFamily='cursive'>Vui lòng chon website mà bạn muốn đăng nhập!</Typography>
         <Grid container spacing={2}>
           {DATA_WEB.map((data) => (
@@ -71,7 +80,7 @@ const Home = () => {
                 src={data.image}
                 route={data.url}
               />
-              <Typography mb={2} fontFamily='cursive' fontWeight={600}>{data.label}</Typography>
+              <Typography my={2} fontFamily='cursive' fontWeight={600}>{data.label}</Typography>
             </Grid>
           ))}
         </Grid>
