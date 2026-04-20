@@ -104,7 +104,7 @@ export default function Login() {
           fontWeight={500}
           sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}
         >
-          Welcome to Telecom!
+          Welcome to Flymm
         </Typography>
       </Box>
       {_error && (
@@ -173,18 +173,18 @@ export default function Login() {
               to={`/${ROUTE_PATH.AUTH}/${ROUTE_PATH.FORGOT_PASSWORD}`}
               sx={{ textAlign: 'end', display: 'block' }}
             >
-              Forgot password?
+              Quên mật khẩu?
             </Typography>
           </Box>
-          <FormControlLabel
+          {/* <FormControlLabel
             label={'Remember me'}
             control={
               <Checkbox checked={remember} onChange={(e) => setRemember(e.target.checked)} />
             }
-          />
+          /> */}
         </div>
         <LoadingButton loading={_loading} type='submit' variant='contained' fullWidth>
-          Login
+          Đăng nhập
         </LoadingButton>
         {/* <Box display='flex' justifyContent='center' alignItems='center' flexWrap='wrap' gap={2}>
           <Typography>Don't have an account</Typography>
