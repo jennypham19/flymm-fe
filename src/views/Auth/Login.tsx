@@ -96,15 +96,18 @@ export default function Login() {
   };
 
   return (
-    <Page title='Login'>
-      <Box>
+    <Page title='Flymm - Đăng nhập'>
+      <Box width={{ xs: '100%', md: '500px' }} mb={2}>
         <Typography
           component='h1'
           variant='h4'
-          fontWeight={500}
-          sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)' }}
+          fontWeight={600}
+          sx={{ width: '100%', fontSize: 'clamp(2rem, 10vw, 2.15rem)', color: '#fff' }}
         >
-          Welcome to Flymm
+          ĐĂNG NHẬP
+        </Typography>
+        <Typography sx={{ color: '#fff' }}>
+          Chào mừng bạn tới trang đăng nhập của MINTZ
         </Typography>
       </Box>
       {_error && (
@@ -120,58 +123,70 @@ export default function Login() {
           flexDirection: 'column',
           width: '100%',
           gap: 2,
+          mt: 2,
         }}
       >
-        <ControllerTextField<LoginFormInputs>
-          controllerProps={{
-            name: 'username',
-            defaultValue: '',
-            control: control,
-          }}
-          textFieldProps={{
-            label: 'Username',
-            error: !!errors.username,
-            helperText: errors.username?.message,
-            sx: { ariaLabel: 'username' },
-          }}
-          prefixIcon={Email}
-        />
-        <ControllerTextField<LoginFormInputs>
-          controllerProps={{
-            name: 'password',
-            defaultValue: '',
-            control: control,
-          }}
-          textFieldProps={{
-            label: 'Password',
-            type: showPassword ? 'text' : 'password',
-            error: !!errors.password,
-            helperText: errors.password?.message,
-            slotProps: {
-              input: {
-                endAdornment: (
-                  <InputAdornment position='end'>
-                    <IconButton
-                      aria-label='toggle password visibility'
-                      onClick={() => setShowPassword.toggle()}
-                      edge='end'
-                    >
-                      {showPassword ? <VisibilityOff /> : <Visibility />}
-                    </IconButton>
-                  </InputAdornment>
-                ),
+        <Box>
+          <Typography variant='subtitle2' sx={{ color: '#fff' }}>Tên đăng nhập</Typography>
+          <ControllerTextField<LoginFormInputs>
+            from='login'
+            controllerProps={{
+              name: 'username',
+              defaultValue: '',
+              control: control,
+            }}
+            textFieldProps={{
+              label: '',
+              error: !!errors.username,
+              helperText: errors.username?.message,
+              sx: { 
+                ariaLabel: 'username',
               },
-            },
-          }}
-          prefixIcon={Lock}
-        />
+            }}
+            prefixIcon={Email}
+          />          
+        </Box>
+
+        <Box>
+          <Typography variant='subtitle2' sx={{ color: '#fff' }}>Mật khẩu</Typography>
+          <ControllerTextField<LoginFormInputs>
+            from='login'
+            controllerProps={{
+              name: 'password',
+              defaultValue: '',
+              control: control,
+            }}
+            textFieldProps={{
+              label: '',
+              type: showPassword ? 'text' : 'password',
+              error: !!errors.password,
+              helperText: errors.password?.message,
+              slotProps: {
+                input: {
+                  endAdornment: (
+                    <InputAdornment position='end'>
+                      <IconButton
+                        aria-label='toggle password visibility'
+                        onClick={() => setShowPassword.toggle()}
+                        edge='end'
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                },
+              },
+            }}
+            prefixIcon={Lock}
+          />          
+        </Box>
+
         <div>
           <Box>
             <Typography
-              color='primary'
               component={RouterLink}
               to={`/${ROUTE_PATH.AUTH}/${ROUTE_PATH.FORGOT_PASSWORD}`}
-              sx={{ textAlign: 'end', display: 'block' }}
+              sx={{ textAlign: 'end', display: 'block', color: '#fff' }}
             >
               Quên mật khẩu?
             </Typography>
@@ -183,7 +198,7 @@ export default function Login() {
             }
           /> */}
         </div>
-        <LoadingButton loading={_loading} type='submit' variant='contained' fullWidth>
+        <LoadingButton loading={_loading} type='submit' variant='outlined' fullWidth sx={{ color: '#fff', borderColor: '#fff', '&:hover': { borderColor: '#fff' }, borderRadius: 25 }}>
           Đăng nhập
         </LoadingButton>
         {/* <Box display='flex' justifyContent='center' alignItems='center' flexWrap='wrap' gap={2}>

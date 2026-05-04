@@ -9,6 +9,7 @@ type Props<T extends FieldValues> = {
   textFieldProps?: TextFieldProps;
   controllerProps: Omit<ControllerProps<T>, 'render'>;
   prefixIcon?: SvgIconComponent;
+  from?: 'login'
 };
 
 export default function ControllerTextField<T extends FieldValues>({
@@ -17,6 +18,7 @@ export default function ControllerTextField<T extends FieldValues>({
   textFieldProps,
   controllerProps,
   prefixIcon: PrefixIcon,
+  from
 }: Props<T>) {
   return (
     <Controller
@@ -34,8 +36,20 @@ export default function ControllerTextField<T extends FieldValues>({
             input: {
               size: 'medium',
               startAdornment: PrefixIcon ? <PrefixIcon color='action' sx={{ mr: 1 }} /> : null,
+              style: {
+                backgroundColor: from === 'login' ? '#fff' : 'transparent',
+                borderRadius: 25,
+                color: 'black'
+              },
               ...textFieldProps?.slotProps?.input,
             },
+            
+          }}
+          InputLabelProps={{
+            sx: {
+              fontSize: "14px",
+              color: from === 'login' ? '#fff' : '#aaa'
+            }
           }}
         />
       )}
