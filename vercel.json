@@ -9,6 +9,10 @@
         "destination": "https://pet-web-fe.vercel.app/:path*"
       },
       {
+        "source": "/ks/:path*",
+        "destination": "https://management-clean-hotel.vercel.app/:path*"
+      },
+      {
         "source": "/(.*)",
         "destination": "/index.html"
       }
