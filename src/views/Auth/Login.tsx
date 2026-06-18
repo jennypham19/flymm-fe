@@ -97,7 +97,7 @@ export default function Login() {
 
   return (
     <Page title='Flymm - Đăng nhập'>
-      <Box width={{ xs: '100%', md: '500px' }} mb={2}>
+      {/* <Box width={{ xs: '100%', md: '500px' }} mb={2}>
         <Typography
           component='h1'
           variant='h4'
@@ -109,13 +109,13 @@ export default function Login() {
         <Typography sx={{ color: '#fff' }}>
           Chào mừng bạn tới trang đăng nhập của MINTZ
         </Typography>
-      </Box>
-      {_error && (
+      </Box> */}
+      {/* {_error && (
         <Alert variant='filled' severity='warning'>
           {_error}
         </Alert>
-      )}
-      <Box
+      )} */}
+      {/* <Box
         component='form'
         onSubmit={handleSubmit(onSubmit)}
         sx={{
@@ -191,27 +191,11 @@ export default function Login() {
               Quên mật khẩu?
             </Typography>
           </Box>
-          {/* <FormControlLabel
-            label={'Remember me'}
-            control={
-              <Checkbox checked={remember} onChange={(e) => setRemember(e.target.checked)} />
-            }
-          /> */}
         </div>
         <LoadingButton loading={_loading} type='submit' variant='outlined' fullWidth sx={{ color: '#fff', borderColor: '#fff', '&:hover': { borderColor: '#fff' }, borderRadius: 25 }}>
           Đăng nhập
         </LoadingButton>
-        {/* <Box display='flex' justifyContent='center' alignItems='center' flexWrap='wrap' gap={2}>
-          <Typography>Don't have an account</Typography>
-          <Typography
-            to={`/${ROUTE_PATH.AUTH}/${ROUTE_PATH.REGISTRATION}`}
-            component={RouterLink}
-            color='primary'
-          >
-            Create an account
-          </Typography>
-        </Box> */}
-      </Box>
+      </Box> */}
     </Page>
   );
 }

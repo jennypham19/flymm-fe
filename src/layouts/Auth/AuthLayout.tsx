@@ -41,7 +41,7 @@ export default function AuthLayout() {
         sx={{
           position: 'absolute',
           inset: 0,
-          background: { xs: 'rgba(0,0,0,0.4)', md: 'transparent' },
+          // background: { xs: 'rgba(0,0,0,0.4)', md: 'transparent' },
           zIndex: 1,
         }}
       />
